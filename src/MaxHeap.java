@@ -54,11 +54,41 @@ public class MaxHeap {
 		}
 		if(smallest!=i) {
 			swap(i, smallest,minHeap);
-			maxHeapify(smallest);
+			minHeapify(smallest);
 		}
 		
 	}
 	
+	int extractMax() {
+		int max=heap[0];
+		heap[0]=heap[heap.length-1];
+		heap=Arrays.copyOf(heap, heap.length-1);
+		maxHeapify(0);
+		return max;
+	}
+	
+	int extractMin() {
+		int min=minHeap[0];
+		minHeap[0]=minHeap[minHeap.length-1];
+		minHeap=Arrays.copyOf(minHeap, minHeap.length-1);
+		minHeapify(0);
+		return min;
+	}
+	int[] maxHeapSort() {
+        int[] sortedArray = new int[heap.length];
+        for (int i =0; i< sortedArray.length;i++) {
+            sortedArray[sortedArray.length - i - 1] = extractMax();
+        }
+        return sortedArray;
+    }
+
+    int[] minHeapSort() {
+        int[] sortedArray = new int[minHeap.length];
+        for (int i= sortedArray.length-1;i>=0; i--) {
+            sortedArray[i] = extractMin();
+        }
+        return sortedArray;
+    }
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -87,6 +117,12 @@ public class MaxHeap {
 		}
 		System.out.println("Max Heap: "+Arrays.toString(maxHeap.heap));
 		System.out.println("Min Heap: "+Arrays.toString(maxHeap.minHeap));
+		
+		int[] maxHeapSort=maxHeap.maxHeapSort();
+		int[] minHeapSort=maxHeap.minHeapSort();
+		
+		System.out.println("Max Heap Sorted Array (Ascending): " + Arrays.toString(maxHeapSort));
+	    System.out.println("Min Heap Sorted Array (Descending): " + Arrays.toString(minHeapSort));
 
 	}
 
