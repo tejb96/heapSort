@@ -93,20 +93,19 @@ public class MaxHeap {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-//		Scanner reader=new Scanner(System.in);
-//		
-//		System.out.println("Enter the number of nodes:");
-//		int nodes = reader.nextInt();
-//		
-//		System.out.println("Enter the nodes:");
-//		
-//		int[] original=new int[nodes];
-//		for(int i=0;i<nodes;i++) {
-//			original[i]=reader.nextInt();
-//		}
-//		reader.close();
-		int[] original= {4,1,3,2,16,9,10,14,8,7};
-		int nodes=10;
+		Scanner reader=new Scanner(System.in);
+		
+		System.out.println("Enter the number of nodes:");
+		int nodes = reader.nextInt();
+		
+		System.out.println("Enter the nodes:");
+		
+		int[] original=new int[nodes];
+		for(int i=0;i<nodes;i++) {
+			original[i]=reader.nextInt();
+		}
+		reader.close();
+		
 		System.out.println("Input nodes: "+Arrays.toString(original));
 		
 		MaxHeap maxHeap=new MaxHeap(original);
